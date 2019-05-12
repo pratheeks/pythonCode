@@ -1,0 +1,10 @@
+def add(a,b):
+    return a+b
+def sub(a,b):
+    return a-b
+def mul(a,b):
+    return a*b
+def areaSquare(a):
+    return a*a
+def areaRect(a,b):
+    return a*b
