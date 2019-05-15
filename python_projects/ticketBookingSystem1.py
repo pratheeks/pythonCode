@@ -1,4 +1,5 @@
 from datetime import datetime
+import mysql.connector
 x=[]
 #-----------------------------------------------------------------------------------
 def logic():
@@ -395,3 +396,73 @@ def Main():
         b=False
  #---------------------------------------------------------------------------------       
 Main()
+#----------------------------------------------------------------------------------
+movie_name=ticket_list[0]
+# print(movie_name)
+# print(type(movie_name))
+Language=x[0][2]
+# print(Language)
+# print(type(Language))
+Timings=ticket_list[2]
+# print(Timings)
+# print(type(Timings))
+Theatre=ticket_list[1]
+# print(Theatre)
+# print(type(Theatre))
+
+
+if x1[0] in'abc':
+    Seat='PREMIUM'
+elif x1[0] in'def':
+    Seat='EXECUTIVE'
+elif x1[0] in'gh':
+    Seat='NORMAL'
+# print(Seat)
+# print(type(Seat))
+Seat_Row=x1[0]
+# print(Seat_Row)
+# print(type(Seat_Row))
+Seat_Numbers=str(x1[1])
+# print(Seat_Numbers)
+# print(type(Seat_Numbers))
+if x1[0] in 'abc':
+    Price=550
+    Total_Price=Price*s
+elif x1[0] in 'def':
+    Price=350
+    Total_Price=Price*s
+elif x1[0] in 'gh':
+    Price=250
+    Total_Price=Price*s
+# print(Price)
+# print(type(Price))
+# print(Total_Price)
+# print(type(Total_Price))
+gst=Total_Price*4//100
+# print(gst)
+# print(type(gst))
+AMOUNT_PAYABLE=Total_Price+gst
+# print(AMOUNT_PAYABLE)
+# print(type(AMOUNT_PAYABLE))
+try:
+    # print("Connecting")
+    connection = mysql.connector.connect(host='localhost',database='ticket_booking',username='root',password='toor')
+    print("Connected")
+
+    cursor = connection.cursor()
+
+    sql_insert_query = """insert into billing(`User`,`Movie`,`Language`,`Timings`,`Theatre`,`Seat Class`,`Seat Row`,`Seat Numbers`,
+    `Price`,`Total Price`,`GST`,`Amount Payable`) 
+    values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
+    insert_tuple = (a,movie_name,Language,Timings,Theatre,Seat,Seat_Row,Seat_Numbers,Price,Total_Price,gst,AMOUNT_PAYABLE)
+    cursor.execute(sql_insert_query,insert_tuple)
+    connection.commit()
+
+    print("Row inserted")
+except Exception as e:
+    print("Exception occured",e)
+finally:
+    if connection.is_connected():
+        cursor.close()
+        connection.close()
+        print("connection closed")
