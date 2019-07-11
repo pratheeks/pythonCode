@@ -397,19 +397,21 @@ def Main():
  #---------------------------------------------------------------------------------       
 Main()
 #----------------------------------------------------------------------------------
-movie_name=ticket_list[0]
-# print(movie_name)
-# print(type(movie_name))
-Language=x[0][2]
-# print(Language)
-# print(type(Language))
-Timings=ticket_list[2]
-# print(Timings)
-# print(type(Timings))
-Theatre=ticket_list[1]
-# print(Theatre)
-# print(type(Theatre))
-
+try:
+    movie_name=ticket_list[0]
+    # print(movie_name)
+    # print(type(movie_name))
+    Language=x[0][2]
+    # print(Language)
+    # print(type(Language))
+    Timings=ticket_list[2]
+    # print(Timings)
+    # print(type(Timings))
+    Theatre=ticket_list[1]
+    # print(Theatre)
+    # print(type(Theatre))
+except NameError:
+    pass
 
 if x1[0] in'abc':
     Seat='PREMIUM'

@@ -1,4 +1,5 @@
-a=input('Enter the input:\n').lower()
+# a=input('Enter the input:\n').lower()
+a='this is#$'
 print()
 print(a)
 print()

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+<head>
+	<title>GreetingsApp</title>
+</head>
+<body>
+	<h1>Server Time:{{ins_time}}</h1>
+	<h1>{{ins_msg}}</h1>
+	<img src="{% static 'images/weather.jpg' %}">
+</body>
+</html>

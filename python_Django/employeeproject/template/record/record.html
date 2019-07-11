@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<title>Student</title>
+	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+</head>
+<body>
+	<h1>The Student Information is:</h1>
+	{% if records %}
+	<img src="{% static "images/44764.jpg" %}" width='200' height="100">
+	<table border='3'>
+		<tr>
+			<th>Name</th>
+			<th>Address</th>
+			<th>Age</th>
+		</tr>
+		{% for i in records %}
+			<tr>
+				<td>{{ i.sname }}</td>
+				<td>{{ i.saddr }}</td>
+				<td>{{ i.sage }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+
+	{% else %}
+	<h1>No Records</h1>
+		
+	{% endif %}
+</body>
+</html>

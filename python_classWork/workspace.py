@@ -1,4 +1,29 @@
 
+# s={1,2,3}
+# s.update(['pratik'])
+# print(s)
+# print(s.pop())
+
+
+#l=['qwert']
+#x=l
+#print(l,x)
+#
+#print(id(l))
+#print(id(x))
+#
+#x.append(['asdf'])
+#print(x,l)
+#
+#print(id(l))
+#print(id(x))
+
+
+
+
+
+
+
 #class CustomException(Exception):
 #    pass
 #
